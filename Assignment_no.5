@@ -1,0 +1,36 @@
+import pandas as pd
+
+# Load CSV file
+df = pd.read_csv("employee_data.csv")
+
+# Display the data
+print("Original Data:")
+print(df)
+
+# 1. Filtering
+filtered_data = df[df["Employee Salary"] > 75]
+
+print("\nStudents with Marks > 75:")
+print(filtered_data)
+
+# 2. Sorting
+sorted_data = df.sort_values(by="Employee Salary", ascending=False)
+
+print("\nStudents sorted by Marks:")
+print(sorted_data)
+
+# 3. Conditional Selection
+conditional_data = df[
+    (df["Department"] == "CS") & (df["Employee Salary"] >= 80)
+]
+
+print("\nCS students with Marks >= 80:")
+print(conditional_data)
+
+# 4. Filtering + Sorting + Conditional Selection
+result = df[
+    (df["Department"] == "CS") & (df["Employee Salary"] >= 75)
+].sort_values(by="Employee Salary", ascending=False)
+
+print("\nFinal Meaningful Information:")
+print(result)
